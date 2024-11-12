@@ -1,0 +1,150 @@
+/* Background gradien untuk body */
+body {
+  background-image: linear-gradient(to bottom, #83fbff, #f85fd2);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  position: relative;
+}
+
+/* Pesan ulang tahun di tengah layar */
+#birthday-message {
+  width: 80%; 
+  font-size: 24px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Gaya untuk balon */
+.balloon {
+  width: 80%; 
+  margin: 0 auto;
+  position: absolute;
+  animation: float 6s infinite;
+  mix-blend-mode: multiply;
+  background: transparent;
+}
+
+/* Gaya untuk boneka */
+.boneka {
+  width: 20%; /* Responsive untuk layar besar */
+  height: auto;
+  position: absolute;
+  animation: float 6s infinite;
+  mix-blend-mode: multiply;
+  background: transparent;
+}
+
+/* Media query untuk perangkat dengan lebar layar <= 768px */
+@media only screen and (max-width: 768px) {
+  #birthday-message {
+      width: 90%;
+  }
+  .balloon {
+      width: 40%;
+  }
+  .boneka {
+      width: 25%;
+  }
+}
+
+/* Media query untuk perangkat dengan lebar layar <= 480px */
+@media only screen and (max-width: 480px) {
+  #birthday-message {
+      width: 95%;
+      font-size: 20px; /* Font lebih kecil di layar kecil */
+  }
+  .balloon {
+      width: 50%;
+  }
+  .boneka {
+      width: 30%;
+  }
+}
+
+/* Animasi mengambang (float) untuk balon dan boneka */
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-30px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+/* Kembang api (fireworks) */
+#fireworks {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 300px;
+  height: 300px;
+  background: transparent;
+}
+
+.firework {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(
+      calc(255 * var(--random1)),
+      calc(255 * var(--random2)),
+      calc(255 * var(--random3)),
+      0.5
+  );
+  animation: explode 3s infinite;
+}
+
+/* Animasi meledak (explode) */
+@keyframes explode {
+  0% {
+      transform: scale(0.1);
+      opacity: 0;
+  }
+  50% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(0.1);
+      opacity: 0;
+  }
+}
+
+/* Gaya nama dengan animasi berkedip (blink) */
+.name {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-weight: bold;
+  color: #000000;
+  text-shadow: 4px 4px 4px #ffffff;
+  animation: blink 2s infinite;
+}
+
+/* Animasi blink */
+@keyframes blink {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
